@@ -1,4 +1,6 @@
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_season.dart';
+
+
+import '../enums/liturgical_season.dart';
 
 
 class LiturgicalWeek {

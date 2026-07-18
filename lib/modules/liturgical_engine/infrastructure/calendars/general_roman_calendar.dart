@@ -1,8 +1,10 @@
-import 'package:catholic/modules/liturgical_engine/domain/definitions/celebration_definition.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_color.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_rank.dart';
-import 'package:catholic/modules/liturgical_engine/domain/rules/fixed_date_rule.dart';
-import 'package:catholic/modules/liturgical_engine/domain/value_objects/celebration_key.dart';
+
+
+import '../../domain/definitions/celebration_definition.dart';
+import '../../domain/enums/liturgical_color.dart';
+import '../../domain/enums/liturgical_rank.dart';
+import '../../domain/rules/fixed_date_rule.dart';
+import '../../domain/value_objects/celebration_key.dart';
 
 class GeneralRomanCalendar {
   List<CelebrationDefinition> get celebrations => [

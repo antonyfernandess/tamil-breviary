@@ -1,5 +1,7 @@
-import 'package:catholic/modules/liturgical_engine/domain/contracts/calendar_rule.dart';
-import 'package:catholic/modules/liturgical_engine/domain/value_objects/calendar_context.dart';
+
+
+import '../contracts/calendar_rule.dart';
+import '../value_objects/calendar_context.dart';
 
 class FixedDateRule implements CalendarRule {
   final int month;

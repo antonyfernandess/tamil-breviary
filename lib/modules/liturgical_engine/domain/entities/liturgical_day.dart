@@ -1,7 +1,8 @@
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_color.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_rank.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_season.dart';
-import 'package:catholic/modules/liturgical_engine/domain/value_objects/celebration_key.dart';
+
+import '../enums/liturgical_color.dart';
+import '../enums/liturgical_rank.dart';
+import '../enums/liturgical_season.dart';
+import '../value_objects/celebration_key.dart';
 
 class LiturgicalDay {
   

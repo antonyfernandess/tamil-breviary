@@ -1,7 +1,9 @@
-import 'package:catholic/modules/liturgical_engine/domain/contracts/calendar_rule.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_color.dart';
-import 'package:catholic/modules/liturgical_engine/domain/enums/liturgical_rank.dart';
-import 'package:catholic/modules/liturgical_engine/domain/value_objects/celebration_key.dart';
+
+
+import '../contracts/calendar_rule.dart';
+import '../enums/liturgical_color.dart';
+import '../enums/liturgical_rank.dart';
+import '../value_objects/celebration_key.dart';
 
 class CelebrationDefinition {
   final CelebrationKey key;

@@ -1,4 +1,5 @@
-import 'package:catholic/modules/liturgical_engine/domain/definitions/celebration_definition.dart';
+
+import '../definitions/celebration_definition.dart';
 
 class Celebration{
   final CelebrationDefinition definition;

@@ -1,4 +1,6 @@
-import 'package:catholic/modules/liturgical_engine/domain/entities/liturgical_day.dart';
+
+
+import 'liturgical_day.dart';
 
 class LiturgicalYear {
   final int year;
