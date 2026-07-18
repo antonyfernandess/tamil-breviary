@@ -1,7 +1,8 @@
 enum LiturgicalSeason {
   advent,
   christmas,
-  ordinaryTime,
   lent,
+  sacredTriduum,
   easter,
+  ordinaryTime,
 }

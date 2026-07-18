@@ -3,6 +3,6 @@ enum LiturgicalRank {
   feast,
   memorial,
   optionalMemorial,
+  commemoration,
   feria,
-  commemoration
 }

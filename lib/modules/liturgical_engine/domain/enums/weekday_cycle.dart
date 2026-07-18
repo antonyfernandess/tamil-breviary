@@ -1,0 +1,4 @@
+enum WeekdayCycle {
+  i,
+  ii,
+}
