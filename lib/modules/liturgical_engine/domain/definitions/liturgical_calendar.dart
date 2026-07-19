@@ -1,8 +1,7 @@
-
 import 'celebration_definition.dart';
 
-abstract interface class LiturgicalCalendar{
+abstract interface class LiturgicalCalendar {
   String get key;
 
-  Iterable<CelebrationDefinition> get celebrations;
+  Iterable<CelebrationDefinition> celebrationsForYear(int year);
 }
