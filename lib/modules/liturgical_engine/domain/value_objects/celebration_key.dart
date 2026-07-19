@@ -12,5 +12,8 @@ class CelebrationKey {
 
   @override
   int get hashCode => value.hashCode;
+
+  @override
+  String toString() => value;
           
 }

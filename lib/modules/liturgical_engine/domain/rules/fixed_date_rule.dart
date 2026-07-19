@@ -1,6 +1,6 @@
 
 
-import '../contracts/calendar_rule.dart';
+import 'calendar_rule.dart';
 import '../value_objects/calendar_context.dart';
 
 class FixedDateRule implements CalendarRule {

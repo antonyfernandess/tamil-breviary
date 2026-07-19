@@ -1,18 +1,3 @@
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp();
+void main(){
+  runApp(const CatholicApp());
 }
-
-class Catholic extends StatelessWidget {
-  const Catholic({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "CatholicApp",
-      home
-    );
-  }
-}
-

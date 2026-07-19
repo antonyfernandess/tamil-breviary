@@ -1,5 +1,5 @@
 
-import '../definitions/celebration_definition.dart';
+import 'celebration_definition.dart';
 
 abstract interface class LiturgicalCalendar{
   String get key;
