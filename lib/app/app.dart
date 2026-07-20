@@ -11,6 +11,8 @@ import '../modules/liturgical_engine/infrastructure/calendars/sqlite_fixed_feast
 import '../modules/liturgical_engine/infrastructure/database/feast_repository.dart';
 import 'router.dart';
 
+/// The main entry point of the Catholic application, initializing the calendar service and setting up routing.
+/// 
 class CatholicApp extends StatefulWidget {
   const CatholicApp({super.key});
 

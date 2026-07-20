@@ -23,16 +23,19 @@ class PrivilegedDayCalculator {
     return false;
   }
 
+  /// Returns true if the given date is within Holy Week or the Easter Triduum (from Palm Sunday to Holy Saturday).
   static bool _isHolyWeekOrTriduum(DateTime d, DateTime easter) {
     final palmSunday = easter.subtract(const Duration(days: 7));
     return d.isAfter(palmSunday) && d.isBefore(easter);
   }
 
+  /// Returns true if the given date is within the Easter Octave (from Easter Sunday to the following Sunday).
   static bool _isWithinEasterOctave(DateTime d, DateTime easter) {
     final octaveEnd = easter.add(const Duration(days: 7));
     return !d.isBefore(easter) && !d.isAfter(octaveEnd);
   }
 
+  /// Returns true if the given date is a Sunday of Advent (from the first Sunday of Advent to Christmas Eve).
   static bool _isSundayOfAdvent(DateTime d) {
     if (d.weekday != DateTime.sunday) return false;
     final christmas = DateTime(d.year, 12, 25);
@@ -40,6 +43,7 @@ class PrivilegedDayCalculator {
     return !d.isBefore(adventStart) && d.isBefore(christmas);
   }
 
+  /// Returns true if the given date is a Sunday of Lent (from Ash Wednesday to Palm Sunday).
   static bool _isSundayOfLent(DateTime d, DateTime easter) {
     if (d.weekday != DateTime.sunday) return false;
     final ashWednesday = easter.subtract(const Duration(days: 46));
@@ -47,18 +51,22 @@ class PrivilegedDayCalculator {
     return !d.isBefore(ashWednesday) && !d.isAfter(palmSunday);
   }
 
+  /// Returns true if the given date is a Sunday of Easter (from Easter Sunday to Pentecost).
   static bool _isSundayOfEaster(DateTime d, DateTime easter) {
     if (d.weekday != DateTime.sunday) return false;
     final pentecost = easter.add(const Duration(days: 49));
     return !d.isBefore(easter) && !d.isAfter(pentecost);
   }
 
+  /// Returns the date of the first Sunday of Advent for the given year.
   static DateTime _firstAdventSunday(int year) {
     final christmas = DateTime(year, 12, 25);
     final daysSincePrecedingSunday = christmas.weekday % 7;
     final fourthAdventSunday = christmas.subtract(
       Duration(days: daysSincePrecedingSunday),
     );
+
+    /// Returns the date of the first Sunday of Advent, which is 21 days before the fourth Sunday of Advent (Christmas Eve).
     return fourthAdventSunday.subtract(const Duration(days: 21));
   }
 }

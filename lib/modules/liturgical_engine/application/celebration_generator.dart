@@ -27,6 +27,8 @@ class CelebrationGenerator {
     this.settings = CalendarSettings.roman,
   });
 
+  /// Generates a list of [ResolvedCelebrations] for a given year, 
+  /// applying precedence rules to determine the primary celebration for each date.
   List<ResolvedCelebrations> generate(int year) {
     final context = CalendarContext(year: year, settings: settings);
     final byDate = <DateTime, List<CelebrationDefinition>>{};

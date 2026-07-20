@@ -5,6 +5,7 @@ import '../enums/liturgical_color.dart';
 import '../enums/liturgical_rank.dart';
 import '../value_objects/celebration_key.dart';
 
+/// Represents the definition of a liturgical celebration, including its key, calendar rule, rank, and color.
 class CelebrationDefinition {
   final CelebrationKey key;
 

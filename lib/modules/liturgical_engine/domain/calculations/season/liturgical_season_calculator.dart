@@ -78,7 +78,7 @@ class LiturgicalSeasonCalculator {
     if (epiphany.weekday == DateTime.sunday) {
       return epiphany.add(const Duration(days: 1));
     }
-    final daysUntilSunday = 7 - epiphany.weekday;
-    return epiphany.add(Duration(days: daysUntilSunday));
+    final daysUntilSunday = 7 - epiphany.weekday; /// Calculate the number of days until the next Sunday after Epiphany.
+    return epiphany.add(Duration(days: daysUntilSunday)); /// Return the date of the Baptism of the Lord, which is the Sunday following Epiphany (or the next day if Epiphany is a Sunday).
   }
 }

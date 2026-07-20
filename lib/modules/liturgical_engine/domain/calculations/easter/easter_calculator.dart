@@ -6,12 +6,14 @@ import 'easter_algorithm.dart';
 /// are computed relative to Easter and would otherwise trigger
 /// repeated recalculation for the same year.
 class EasterCalculator {
-  static final Map<int, DateTime> _cache = {};
+  static final Map<int, DateTime> _cache = {}; /// Cache for storing computed Easter Sunday dates by year.
 
   static DateTime forYear(int year) {
-    return _cache.putIfAbsent(year, () {
-      final result = EasterAlgorithm.calculate(year);
-      return DateTime(year, result.month, result.day);
+    
+    ///  Returns the date of Easter Sunday for the given year, using a cache to avoid redundant calculations.
+    return _cache.putIfAbsent(year, () { 
+      final result = EasterAlgorithm.calculate(year); // Use the EasterAlgorithm to calculate the month and day of Easter Sunday.
+      return DateTime(year, result.month, result.day); // Return the calculated Easter Sunday as a DateTime.
     });
   }
 }

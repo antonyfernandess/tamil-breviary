@@ -12,6 +12,10 @@ import 'celebration_generator.dart';
 import 'liturgical_engine.dart';
 import 'resolved_celebrations.dart';
 
+
+/// Implementation of the LiturgicalEngine interface, 
+/// responsible for generating and managing the liturgical calendar based on 
+/// the provided celebration generator and calendar settings.
 class LiturgicalEngineImpl implements LiturgicalEngine {
   final CelebrationGenerator generator;
   final Map<int, LiturgicalYear> _yearCache = {};
@@ -37,18 +41,19 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
     this.settings = CalendarSettings.roman,
   });
 
+  /// Retrieves the liturgical day for a given date, normalizing the date to ensure consistency.
   @override
   LiturgicalDay getDay(DateTime date) {
     final normalized = DateTime(date.year, date.month, date.day);
     final liturgicalYear = getYear(normalized.year);
     return liturgicalYear.getDay(normalized)!;
   }
-
+  /// Retrieves the liturgical year for a given year, generating it if not already cached.
   @override
   LiturgicalYear getYear(int year) {
     return _yearCache.putIfAbsent(year, () => _generateYear(year));
   }
-
+  /// Generates the liturgical year for a given year, applying precedence rules to resolve celebrations.
   LiturgicalYear _generateYear(int year) {
     final liturgicalYear = LiturgicalYear(year: year);
     final resolvedByDate = _applyPrecedenceRules(generator.generate(year));
@@ -64,7 +69,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
 
     return liturgicalYear;
   }
-
+  /// Applies precedence rules to a list of resolved celebrations, determining which celebrations take precedence on each date.
   Map<DateTime, ResolvedCelebrations> _applyPrecedenceRules(List<ResolvedCelebrations> resolved) {
     final byDate = <DateTime, ResolvedCelebrations>{};
     final sorted = [...resolved]..sort((a, b) => a.date.compareTo(b.date));
@@ -112,7 +117,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
     return byDate;
   }
 
-
+  /// Finds the nearest free day after a blocked date, skipping privileged days and already placed celebrations.
   DateTime _nearestFreeDay(DateTime blockedDate, Map<DateTime, ResolvedCelebrations> alreadyPlaced) {
     var candidate = blockedDate.add(const Duration(days: 1));
     while (PrivilegedDayCalculator.isPrivileged(candidate) || alreadyPlaced.containsKey(candidate)) {
@@ -121,6 +126,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
     return candidate;
   }
 
+  /// Builds a liturgical day for a given date and resolved celebrations.
   LiturgicalDay _buildDay(DateTime date, ResolvedCelebrations? resolved) {
     final season = LiturgicalSeasonCalculator.resolve(date);
 
@@ -149,7 +155,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
       optionalMemorials: optionalMemorials,
     );
   }
-
+  /// Determines the default liturgical color for a given season.
   LiturgicalColor _defaultColorFor(LiturgicalSeason season) {
     switch (season) {
       case LiturgicalSeason.advent:
@@ -166,7 +172,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
         return LiturgicalColor.green;
     }
   }
-
+  /// Normalizes a date to remove time components, ensuring consistency in date comparisons.
   DateTime _normalize(DateTime date) =>
       DateTime(date.year, date.month, date.day);
 }

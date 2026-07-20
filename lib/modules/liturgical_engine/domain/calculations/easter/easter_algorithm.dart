@@ -20,6 +20,7 @@ class EasterAlgorithm {
     final month = (h + l - 7 * m + 114) ~/ 31;
     final day = ((h + l - 7 * m + 114) % 31) + 1;
 
+    /// Returns an [EasterResult] containing the month and day of Easter Sunday for the given year.
     return EasterResult(month: month, day: day);
   }
 }
