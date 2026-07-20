@@ -153,9 +153,11 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
   LiturgicalColor _defaultColorFor(LiturgicalSeason season) {
     switch (season) {
       case LiturgicalSeason.advent:
+        return LiturgicalColor.violet;
       case LiturgicalSeason.lent:
         return LiturgicalColor.violet;
       case LiturgicalSeason.christmas:
+        return LiturgicalColor.white;
       case LiturgicalSeason.easter:
         return LiturgicalColor.white;
       case LiturgicalSeason.sacredTriduum:
