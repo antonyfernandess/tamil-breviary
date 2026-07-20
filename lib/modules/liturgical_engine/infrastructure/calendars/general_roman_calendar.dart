@@ -1,15 +1,15 @@
-
-
 import 'package:catholic/modules/liturgical_engine/domain/definitions/liturgical_calendar.dart';
-
 import '../../domain/definitions/celebration_definition.dart';
 import '../../domain/enums/liturgical_color.dart';
 import '../../domain/enums/liturgical_rank.dart';
+import '../../domain/rules/ascension_rule.dart';
+import '../../domain/rules/baptism_of_the_lord_rule.dart';
+import '../../domain/rules/corpus_christi_rule.dart';
 import '../../domain/rules/easter_based_rule.dart';
+import '../../domain/rules/epiphany_rule.dart';
 import '../../domain/value_objects/celebration_key.dart';
 
 class GeneralRomanCalendar implements LiturgicalCalendar {
-
   @override
   String get key => 'general_roman_calendar';
 
@@ -49,7 +49,7 @@ class GeneralRomanCalendar implements LiturgicalCalendar {
     ),
     CelebrationDefinition(
       key: CelebrationKey('ascension'),
-      rule: EasterBasedRule(offsetDays: 39),
+      rule: const AscensionRule(),
       rank: LiturgicalRank.solemnity,
       color: LiturgicalColor.white,
     ),
@@ -58,6 +58,30 @@ class GeneralRomanCalendar implements LiturgicalCalendar {
       rule: EasterBasedRule(offsetDays: 49),
       rank: LiturgicalRank.solemnity,
       color: LiturgicalColor.red,
+    ),
+    CelebrationDefinition(
+      key: CelebrationKey('trinity_sunday'),
+      rule: EasterBasedRule(offsetDays: 56),
+      rank: LiturgicalRank.solemnity,
+      color: LiturgicalColor.white,
+    ),
+    CelebrationDefinition(
+      key: CelebrationKey('corpus_christi'),
+      rule: const CorpusChristiRule(),
+      rank: LiturgicalRank.solemnity,
+      color: LiturgicalColor.white,
+    ),
+    CelebrationDefinition(
+      key: CelebrationKey('epiphany'),
+      rule: const EpiphanyRule(),
+      rank: LiturgicalRank.solemnity,
+      color: LiturgicalColor.white,
+    ),
+    CelebrationDefinition(
+      key: CelebrationKey('baptism_of_the_lord'),
+      rule: const BaptismOfTheLordRule(),
+      rank: LiturgicalRank.feast,
+      color: LiturgicalColor.white,
     ),
   ];
 }

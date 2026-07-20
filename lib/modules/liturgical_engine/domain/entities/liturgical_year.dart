@@ -22,4 +22,9 @@ class LiturgicalYear {
   DateTime _normalize(DateTime date) {
     return DateTime(date.year, date.month, date.day);
   }
+
+  List<LiturgicalDay> get days {
+    final sorted = _days.values.toList()..sort((a, b) => a.date.compareTo(b.date));
+    return sorted;
+  }
 }
