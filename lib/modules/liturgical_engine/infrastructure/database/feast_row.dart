@@ -1,3 +1,5 @@
+
+/// A row in the feasts table, representing a single feast day.
 class FeastRow {
   final int month;
   final int day;
@@ -14,7 +16,7 @@ class FeastRow {
     required this.addedYear,
     required this.removedYear,
   });
-
+  /// Create a FeastRow from a map of values, typically from a database query result.
   factory FeastRow.fromMap(Map<String, Object?> map) {
     return FeastRow(
       month: map['feast_month'] as int,

@@ -19,6 +19,8 @@ class LiturgicalDay {
 
   final List<OptionalMemorial> optionalMemorials;
 
+  final int? weekOfSeason;
+
   const LiturgicalDay({
     required this.date,
     required this.celebration,
@@ -26,5 +28,6 @@ class LiturgicalDay {
     required this.rank,
     required this.color,
     this.optionalMemorials = const [],
+    this.weekOfSeason,
   });
 }

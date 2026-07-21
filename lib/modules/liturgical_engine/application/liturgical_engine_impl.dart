@@ -1,4 +1,5 @@
 import '../domain/calculations/season/liturgical_season_calculator.dart';
+import '../domain/calculations/season/liturgical_week_calculator.dart';
 import '../domain/calculations/season/privileged_day_calculator.dart';
 import '../domain/entities/liturgical_day.dart';
 import '../domain/entities/liturgical_year.dart';
@@ -129,6 +130,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
   /// Builds a liturgical day for a given date and resolved celebrations.
   LiturgicalDay _buildDay(DateTime date, ResolvedCelebrations? resolved) {
     final season = LiturgicalSeasonCalculator.resolve(date);
+    final weekOfSeason = LiturgicalWeekCalculator.weekOf(date);
 
     if (resolved?.primary != null) {
       final primary = resolved!.primary!;
@@ -138,6 +140,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
         season: season,
         rank: primary.rank,
         color: primary.color,
+        weekOfSeason: weekOfSeason,
       );
     }
 
@@ -153,6 +156,7 @@ class LiturgicalEngineImpl implements LiturgicalEngine {
       rank: LiturgicalRank.feria,
       color: _defaultColorFor(season),
       optionalMemorials: optionalMemorials,
+      weekOfSeason: weekOfSeason,
     );
   }
   /// Determines the default liturgical color for a given season.

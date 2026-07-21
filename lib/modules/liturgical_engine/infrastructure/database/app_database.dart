@@ -12,7 +12,7 @@ import 'package:sqflite/sqflite.dart';
 /// every time — only when the bundled data has actually changed.
 class AppDatabase {
   /// Bump this every time assets/data/fixed_feasts.db is edited.
-  static const int _dbVersion = 2;
+  static const int _dbVersion = 2;  
 
   static Database? _db;
 

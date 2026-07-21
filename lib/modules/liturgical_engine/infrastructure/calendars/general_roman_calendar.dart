@@ -4,6 +4,7 @@ import '../../domain/enums/liturgical_color.dart';
 import '../../domain/enums/liturgical_rank.dart';
 import '../../domain/rules/ascension_rule.dart';
 import '../../domain/rules/baptism_of_the_lord_rule.dart';
+import '../../domain/rules/christ_the_king_rule.dart';
 import '../../domain/rules/corpus_christi_rule.dart';
 import '../../domain/rules/easter_based_rule.dart';
 import '../../domain/rules/epiphany_rule.dart';
@@ -81,6 +82,12 @@ class GeneralRomanCalendar implements LiturgicalCalendar {
       key: CelebrationKey('baptism_of_the_lord'),
       rule: const BaptismOfTheLordRule(),
       rank: LiturgicalRank.feast,
+      color: LiturgicalColor.white,
+    ),
+    CelebrationDefinition(
+      key: CelebrationKey('christ_the_king'),
+      rule: const ChristTheKingRule(),
+      rank: LiturgicalRank.solemnity,
       color: LiturgicalColor.white,
     ),
   ];

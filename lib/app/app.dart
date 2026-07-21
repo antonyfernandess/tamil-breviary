@@ -56,7 +56,7 @@ class _CatholicAppState extends State<CatholicApp> {
     for (final day in year2026.days) {
       final dateStr = day.date.toIso8601String().substring(0, 10);
       final optionals = day.optionalMemorials.map((m) => m.key.value).join(', ');
-      print('$dateStr  ${day.season.name.padRight(14)}  ${day.celebration.value}'
+      print('$dateStr  ${day.season.name.padRight(14)} wk:${day.weekOfSeason}  ${day.celebration.value}...'
           '${optionals.isNotEmpty ? '  [or: $optionals]' : ''}');
     }
     // --- end temporary test ---
