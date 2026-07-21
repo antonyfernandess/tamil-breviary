@@ -13,6 +13,6 @@ class EpiphanyRule implements CalendarRule {
       final date = DateTime(context.year, 1, day);
       if (date.weekday == DateTime.sunday) return date;
     }
-    throw StateError('Unable to calculate Epiphany.');
+    throw StateError('Unable to calculate Epiphany.'); // This should never happen, as there is always a Sunday between January 2 and January 8.
   }
 }

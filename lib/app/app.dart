@@ -26,12 +26,13 @@ class _CatholicAppState extends State<CatholicApp> {
   @override
   void initState() {
     super.initState();
-    _calendarServiceFuture = _buildCalendarService();
+    _calendarServiceFuture = _buildCalendarService(); /// Initializes the calendar service asynchronously when the widget is first created. _calenderServiceFuture is a Future that will complete with the CalendarService once it is built. When the build is complete it has all the c
   }
 
   Future<CalendarService> _buildCalendarService() async {
     final feastRows = await FeastRepository().loadAll();
 
+    /// Create a CelebrationGenerator with the General Roman Calendar and any additional fixed feast calendars, applying precedence rules and calendar settings.
     final generator = CelebrationGenerator(
       calendars: [
         GeneralRomanCalendar(),
@@ -61,6 +62,7 @@ class _CatholicAppState extends State<CatholicApp> {
     }
     // --- end temporary test ---
 
+    /// Return the constructed CalendarService for use in the application.
     return CalendarServiceImpl(
       engine: LiturgicalEngineImpl(
         generator: generator,
