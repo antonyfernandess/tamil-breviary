@@ -9,5 +9,5 @@ class EasterResult {
 
   /// Returns a [DateTime] object representing Easter Sunday for the given year.
   @override
-  String toString() => 'EasterResult($month/$day)';
+  String toString() => 'EasterResult($month/$day)'; /// Returns a string representation of the EasterResult in the format "EasterResult(month/day)".
 }
